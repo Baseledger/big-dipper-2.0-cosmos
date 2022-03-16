@@ -69,6 +69,9 @@ import MsgGrantAllowance from './msg/feegrant/msg_grant_allowance';
 import MsgRevokeAllowance from './msg/feegrant/msg_revoke_allowance';
 import MsgCreateVestingAccount from './msg/vesting/msg_create_vesting_account';
 import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_vesting_account';
+import MsgUbtDepositedClaim from './msg/bridge/msg_ubt_deposited_claim';
+import MsgValidatorPowerChangedClaim from './msg/bridge/msg_validator_power_changed_claim';
+import MsgCreateOrchestratorValidatorAddress from './msg/bridge/msg_create_orchestrator_validator_address';
 
 export {
   BigDipperNetwork,
@@ -142,4 +145,7 @@ export {
   MsgRevokeAllowance,
   MsgCreateVestingAccount,
   MsgCreatePeriodicVestingAccount,
+  MsgUbtDepositedClaim,
+  MsgValidatorPowerChangedClaim,
+  MsgCreateOrchestratorValidatorAddress,
 };

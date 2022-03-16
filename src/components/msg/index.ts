@@ -68,6 +68,9 @@ import GrantAllowance from './feegrant/grant_allowance';
 import RevokeAllowance from './feegrant/revoke_allowance';
 import CreateVestingAccount from './vesting/create_vesting_account';
 import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_account';
+import UbtDepositedClaim from './bridge/ubt_deposited_claim';
+import ValidatorPowerChangedClaim from './bridge/validator_power_changed_claim';
+import OrchestratorValidatorAddress from './bridge/ochestrator_validator_address';
 
 export {
   getMessageModelByType,
@@ -134,4 +137,7 @@ export {
   RevokeAllowance,
   CreateVestingAccount,
   CreatePeriodicVestingAccount,
+  UbtDepositedClaim,
+  ValidatorPowerChangedClaim,
+  OrchestratorValidatorAddress,
 };

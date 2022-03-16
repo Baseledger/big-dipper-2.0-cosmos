@@ -48,5 +48,13 @@ export const getFilterLabels = () => {
       key: 'others',
       display: 'others',
     },
+    {
+      key: 'proof',
+      display: 'proof',
+    },
+    {
+      key: 'bridge',
+      display: 'bridge',
+    },
   ]);
 };
