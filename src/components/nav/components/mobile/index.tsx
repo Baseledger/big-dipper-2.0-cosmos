@@ -4,7 +4,7 @@ import { useGetComponentDimension } from '@hooks';
 import { useStyles } from './styles';
 import { useMobile } from './hooks';
 import {
-  Networks, TitleBar,
+  TitleBar,
 } from '..';
 import {
   Menu,
@@ -24,7 +24,7 @@ const Mobile: React.FC<{
   } = useGetComponentDimension();
   const {
     isMenu,
-    isNetwork,
+    // isNetwork,
     isOpen,
     openNetwork,
     toggleNavMenus,
@@ -44,14 +44,6 @@ const Mobile: React.FC<{
             menu: isMenu,
           })}
         />
-        <span
-          className={classnames(classes.screens, {
-            open: isNetwork,
-            network: isNetwork,
-          })}
-        >
-          <Networks className={classes.networks} />
-        </span>
         <Navbar
           isOpen={isOpen}
           openNetwork={openNetwork}

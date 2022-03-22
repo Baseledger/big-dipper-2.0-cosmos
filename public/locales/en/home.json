@@ -1,6 +1,7 @@
 {
   "latestBlock": "Latest Block",
   "averageBlockTime": "Average Block Time",
+  "network": "Network",
   "price": "Price",
   "activeValidators": "Active Validators",
   "outOfValidators": "out of {{count}} validators",

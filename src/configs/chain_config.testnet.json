@@ -11,7 +11,7 @@
     "account": "baseledger"
   },
   "genesis": {
-    "time": "2022-03-17T16:04:28.506016462Z",
+    "time": "2022-03-22T15:12:21.058571Z",
     "height": 1
   },
   "primaryTokenUnit": "stake",

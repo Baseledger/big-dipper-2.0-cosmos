@@ -26,8 +26,8 @@ const DataBlocks: React.FC<{
       className: classes.blockTime,
     },
     {
-      key: t('price'),
-      value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
+      key: t('network'),
+      value: 'mainnet.baseledger.net',
       className: classes.price,
     },
     {

@@ -20,6 +20,9 @@ export const useStyles = () => {
             cursor: 'pointer',
           },
         },
+        baseledgerUrl: {
+          marginRight: '10px',
+        },
         actions: {
           display: 'flex',
           alignItems: 'center',
