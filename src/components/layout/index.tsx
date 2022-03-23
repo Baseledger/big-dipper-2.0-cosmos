@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {
   Nav,
-  // Footer,
+  Footer,
 } from '@components';
 import { LayoutProps } from './types';
 import { useStyles } from './styles';
@@ -27,7 +27,7 @@ const Layout = (props:LayoutProps) => {
           </div>
         </div>
       </div>
-      {/* <Footer className={classes.footer} /> */}
+      <Footer className={classes.footer} />
     </div>
   );
 };
