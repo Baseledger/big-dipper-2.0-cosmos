@@ -1,6 +1,6 @@
 export const OPEN_GRAPH_SEO = {
   type: 'website',
-  site_name: 'Big Dipper',
+  site_name: 'Baseledger Block Explorer',
   images: [
     {
       url: 'https://baseledger.foundation/images/awesome-feature.png',
