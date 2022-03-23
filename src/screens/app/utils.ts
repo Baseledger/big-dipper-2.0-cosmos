@@ -3,7 +3,7 @@ export const OPEN_GRAPH_SEO = {
   site_name: 'Big Dipper',
   images: [
     {
-      url: 'https://bigdipper.live/images/big-dipper-social-media.png',
+      url: 'https://baseledger.foundation/images/awesome-feature.png',
       width: 800,
       height: 600,
       alt: 'Preview Photo',

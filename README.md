@@ -27,7 +27,7 @@ docker build \
 
 
 # Big Dipper 2.0 ✨ (Cosmos Based Chains)
-Big Dipper is an open-source block explorer and token management tool serving over 10 proof-of-stake blockchains. It has been forked more than 100 times on GitHub and has served audiences from 140 countries and regions.
+The Baseledger Explorer is the block explorer for Baseldedger Mainnet. It is forked from Big Dipper, an open-source block explorer.
 
 **This repo contains the UI of big dipper 2.0 only**
 
