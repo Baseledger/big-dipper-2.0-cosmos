@@ -27,7 +27,7 @@ docker build \
 
 
 # Big Dipper 2.0 ✨ (Cosmos Based Chains)
-The Baseledger Explorer is the block explorer for Baseldedger Mainnet. It is forked from Big Dipper, an open-source block explorer.
+The Baseledger Explorer is the block explorer for Baseledger Mainnet. It is forked from Big Dipper, an open-source block explorer.
 
 **This repo contains the UI of big dipper 2.0 only**
 

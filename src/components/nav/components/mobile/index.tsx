@@ -24,7 +24,6 @@ const Mobile: React.FC<{
   } = useGetComponentDimension();
   const {
     isMenu,
-    // isNetwork,
     isOpen,
     openNetwork,
     toggleNavMenus,

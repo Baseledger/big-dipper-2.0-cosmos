@@ -29,7 +29,6 @@ export const useStyles = () => {
           marginLeft: '20px',
         },
         searchBar: {
-          // flex: 1,
           width: '50%',
           display: 'flex',
           marginRight: theme.spacing(2),

@@ -41,7 +41,7 @@
   "nothingToShow": "Nothing to show",
   "notFound": "Not Found",
   "useValidatorAddress": "Please use a validator address instead",
-  "description": "The Baseledger Explorer is the block explorer for Baseldedger Mainnet. It is forked from Big Dipper, an open-source block explorer.",
+  "description": "The Baseledger Explorer is the block explorer for Baseledger Mainnet. It is forked from Big Dipper, an open-source block explorer.",
   "supply": "Supply",
   "blockTimeAgo": "Latest block displayed was {{time}}",
   "settings": "Settings",
