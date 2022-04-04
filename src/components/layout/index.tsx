@@ -1,7 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import {
-  Nav, Footer,
+  Nav,
+  Footer,
 } from '@components';
 import { LayoutProps } from './types';
 import { useStyles } from './styles';

@@ -16,11 +16,21 @@ export const useStyles = () => {
           width: '70%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
           zIndex: 5000,
         },
+        urlSettings: {
+          fontSize: '1.2rem',
+          color: 'white',
+          display: 'flex',
+          justifyContent: 'flex-end',
+        },
+        settingList: {
+          marginLeft: '20px',
+        },
         searchBar: {
-          flex: 1,
+          width: '50%',
+          display: 'flex',
           marginRight: theme.spacing(2),
           '&.open': {
             '& .MuiInputBase-root': {

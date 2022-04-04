@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=bigdipper
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - bigdipper-db:/var/lib/postgresql/data
+    networks:
+      - bigdipper
+    hostname: postgres-local-node
+    ports:
+      - 5432:5432
+    restart: always
+
+  graphql-engine:
+    image: hasura/graphql-engine:v2.2.0
+    ports:
+    - "8080:8080"
+    depends_on:
+    - "postgres"
+    networks:
+      - bigdipper
+    restart: always
+    environment:
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://user:password@postgres:5432/bigdipper
+      HASURA_GRAPHQL_DATABASE_URL: postgres://user:password@postgres:5432/bigdipper
+      ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
+      PG_DATABASE_URL: postgres://user:password@postgres:5432/bigdipper
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anonymous"
+      ## uncomment next line to set an admin secret
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey 
+
+networks:
+  bigdipper:
+    driver: bridge
+
+volumes:
+  bigdipper-db:    

@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { ExpandMore } from '@material-ui/icons';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@recoil/big_dipper_networks';
 import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
 import BigDipperLogoRed from '@assets/big-dipper-red.svg';
 import { HOME } from '@utils/go_to_page';
@@ -14,10 +12,8 @@ import { NavbarProps } from './types';
 const Navbar = (props:NavbarProps) => {
   const classes = useStyles();
   const theme = useRecoilValue(readTheme);
-  const selected = useRecoilValue(readSelectedNetwork);
   const {
     isOpen,
-    openNetwork,
     toggleNavMenus,
   } = props;
 
@@ -34,17 +30,12 @@ const Navbar = (props:NavbarProps) => {
       </Link>
       <div className={classes.actions}>
         {/* =================================== */}
-        {/* Network */}
+        {/* Baseledger URL */}
         {/* =================================== */}
-        <div
-          className={classes.network}
-          onClick={openNetwork}
-          role="button"
-        >
-          <p className="text">
-            {selected}
-          </p>
-          <ExpandMore fontSize="small" />
+        <div className={classes.baseledgerUrl}>
+          <a href="https://baseledger.net" target="_blank" rel="noreferrer noopener">
+            baseledger.net
+          </a>
         </div>
         {/* =================================== */}
         {/* Hamburger */}

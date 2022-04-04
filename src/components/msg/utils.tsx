@@ -402,7 +402,24 @@ const getDataByType = (type: string) => {
       tagTheme: 'four',
       tagDisplay: 'txUnblockUserLabel',
     },
-
+    '/Baseledger.baseledger.bridge.MsgUbtDepositedClaim': {
+      model: MODELS.MsgUbtDepositedClaim,
+      content: COMPONENTS.UbtDepositedClaim,
+      tagTheme: 'five',
+      tagDisplay: 'txUbtDepositedLabel',
+    },
+    '/Baseledger.baseledger.bridge.MsgValidatorPowerChangedClaim': {
+      model: MODELS.MsgValidatorPowerChangedClaim,
+      content: COMPONENTS.ValidatorPowerChangedClaim,
+      tagTheme: 'five',
+      tagDisplay: 'txValidatorPowerChangeLabel',
+    },
+    '/Baseledger.baseledger.bridge.MsgCreateOrchestratorValidatorAddress': {
+      model: MODELS.MsgCreateOrchestratorValidatorAddress,
+      content: COMPONENTS.OrchestratorValidatorAddress,
+      tagTheme: 'five',
+      tagDisplay: 'txOrchestratorValidatorLabel',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];
