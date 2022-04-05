@@ -420,6 +420,12 @@ const getDataByType = (type: string) => {
       tagTheme: 'five',
       tagDisplay: 'txOrchestratorValidatorLabel',
     },
+    '/Baseledger.baseledger.proof.MsgCreateBaseledgerTransaction': {
+      model: MODELS.MsgCreateBaseledgerTransaction,
+      content: COMPONENTS.CreateBaseledgerTransaction,
+      tagTheme: 'five',
+      tagDisplay: 'txUBTBaseledgerTransaction',
+    },
   };
 
   if (defaultTypeToModel[type]) return defaultTypeToModel[type];

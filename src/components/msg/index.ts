@@ -71,6 +71,7 @@ import CreatePeriodicVestingAccount from './vesting/create_periodic_vesting_acco
 import UbtDepositedClaim from './bridge/ubt_deposited_claim';
 import ValidatorPowerChangedClaim from './bridge/validator_power_changed_claim';
 import OrchestratorValidatorAddress from './bridge/ochestrator_validator_address';
+import CreateBaseledgerTransaction from './proof/create_baseledger_transaction';
 
 export {
   getMessageModelByType,
@@ -140,4 +141,5 @@ export {
   UbtDepositedClaim,
   ValidatorPowerChangedClaim,
   OrchestratorValidatorAddress,
+  CreateBaseledgerTransaction,
 };

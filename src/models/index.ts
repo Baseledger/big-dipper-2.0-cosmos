@@ -72,6 +72,7 @@ import MsgCreatePeriodicVestingAccount from './msg/vesting/msg_create_periodic_v
 import MsgUbtDepositedClaim from './msg/bridge/msg_ubt_deposited_claim';
 import MsgValidatorPowerChangedClaim from './msg/bridge/msg_validator_power_changed_claim';
 import MsgCreateOrchestratorValidatorAddress from './msg/bridge/msg_create_orchestrator_validator_address';
+import MsgCreateBaseledgerTransaction from './msg/proof/msg_create_baseledger_transaction';
 
 export {
   BigDipperNetwork,
@@ -148,4 +149,5 @@ export {
   MsgUbtDepositedClaim,
   MsgValidatorPowerChangedClaim,
   MsgCreateOrchestratorValidatorAddress,
+  MsgCreateBaseledgerTransaction,
 };
