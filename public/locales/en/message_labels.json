@@ -17,7 +17,7 @@
   "txUbtDepositedLabel": "Ubt Deposited Claim",
   "txValidatorPowerChangeLabel": "Validator Power Change Claim",
   "txOrchestratorValidatorLabel": "Orchestrator Validator",
-  "txUnknownLabel": "Unknown",
+  "txUnknownLabel": "Baseledger Transaction",
   "txWithdrawCommissionLabel": "Withdraw Commission",
   "txSaveProfileLabel": "Save Profile",
   "txDeleteProfileLabel": "Delete Profile",
