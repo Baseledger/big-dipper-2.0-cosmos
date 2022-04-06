@@ -38,22 +38,9 @@ const Tokenomics:React.FC<{
       percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
     },
-    {
-      legendKey: 'unbonded',
-      percentKey: 'unbondedPercent',
-      value: numeral(state.unbonded).format('0,0'),
-      rawValue: state.unbonded,
-      percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.two,
-    },
-    {
-      legendKey: 'unbonding',
-      value: numeral(state.unbonding).format('0,0'),
-      rawValue: state.unbonding,
-      percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.three,
-    },
   ];
+
+  const validatorData = [];
 
   const dataProfiles = useProfilesRecoil(useValidators().state.items.map((x) => x.validator));
   const mergedDataWithProfiles = useValidators().state.items.map((x, i) => {
