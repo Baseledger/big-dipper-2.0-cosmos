@@ -139,7 +139,7 @@ const Tokenomics:React.FC<{
                   <div className="box" style={{ backgroundColor: `${x.fill}` }} />
 
                   <Typography variant="caption">
-                    {t(x.legendKey)}
+                    {x.legendKey}
                   </Typography>
                 </div>
               );
