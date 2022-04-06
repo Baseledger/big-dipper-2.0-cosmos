@@ -12,7 +12,11 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
+import {
+  useProfilesRecoil,
+} from '@recoil/profiles';
 import { chainConfig } from '@configs';
+import { useValidators } from '@src/screens/validators/components/list/hooks';
 import { useStyles } from './styles';
 import { useTokenomics } from './hooks';
 
@@ -50,6 +54,15 @@ const Tokenomics:React.FC<{
       fill: theme.palette.custom.tokenomics.three,
     },
   ];
+
+  const dataProfiles = useProfilesRecoil(useValidators().state.items.map((x) => x.validator));
+  const mergedDataWithProfiles = useValidators().state.items.map((x, i) => {
+    return ({
+      ...x,
+      validator: dataProfiles[i],
+    });
+  });
+  const items = useValidators().sortItems(mergedDataWithProfiles);
 
   return (
     <Box className={classnames(className, classes.root)}>
