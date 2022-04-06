@@ -51,6 +51,17 @@ const Tokenomics:React.FC<{
   });
   const items = useValidators().sortItems(mergedDataWithProfiles);
 
+  items.sort((a, b) => b.votingPower - a.votingPower).forEach((item, index) => {
+    validatorData.push({
+      legendKey: item.validator.name,
+      percentKey: `${item.validator.name}Percent`,
+      value: numeral(item.votingPower).format('0,0'),
+      rawValue: item.votingPower,
+      percent: `${numeral(item.votingPowerPercent).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics[index],
+    });
+  });
+
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
