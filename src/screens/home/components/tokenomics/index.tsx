@@ -136,6 +136,8 @@ const Tokenomics:React.FC<{
             validatorData.map((x) => {
               return (
                 <div className="legends__item" key={x.legendKey}>
+                  <div className="box" style={{ backgroundColor: `${x.fill}` }} />
+
                   <Typography variant="caption">
                     {t(x.legendKey)}
                   </Typography>
