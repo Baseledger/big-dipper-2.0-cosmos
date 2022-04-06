@@ -31,17 +31,20 @@ export const useStyles = () => {
         legends: {
           display: 'flex',
           alignItems: 'flex-start',
-          justifyContent: 'flex-start',
+          justifyContent: 'space-between',
           flexWrap: 'wrap',
           width: '100%',
           '& .MuiTypography-caption': {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            width: '50%',
+            width: '48%',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
+            '&:nth-child(odd)': {
+              marginRight: '12px',
+            },
             '& .box': {
               content: '""',
               display: 'inline-block',
