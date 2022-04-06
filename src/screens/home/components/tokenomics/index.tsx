@@ -75,11 +75,6 @@ const Tokenomics:React.FC<{
               {' '}
               {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
             </Typography>
-            <Typography variant="caption">
-              {t(x.percentKey, {
-                percent: x.percent,
-              })}
-            </Typography>
           </div>
         ))}
       </div>
