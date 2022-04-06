@@ -89,7 +89,7 @@ const Tokenomics:React.FC<{
             stroke="none"
             // cornerRadius={40}
             cy={90}
-            data={data}
+            data={validatorData}
             startAngle={180}
             endAngle={0}
             // innerRadius={79}
@@ -101,7 +101,7 @@ const Tokenomics:React.FC<{
             // strokeWidth={3}
             isAnimationActive={false}
           >
-            {data.map((entry) => {
+            {validatorData.map((entry) => {
               return (
                 <Cell key={entry.legendKey} fill={entry.fill} />
               );
@@ -133,7 +133,7 @@ const Tokenomics:React.FC<{
 
         <div className={classes.legends}>
           {
-            data.map((x) => {
+            validatorData.map((x) => {
               return (
                 <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
