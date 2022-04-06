@@ -39,21 +39,15 @@ export const useStyles = () => {
           },
           '& .legends__item': {
             width: '50%',
-            '&:before': {
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            '& .box': {
               content: '""',
               display: 'inline-block',
               width: '12px',
               height: '12px',
               marginRight: '5px',
-            },
-            '&:first-child:before': {
-              background: theme.palette.custom.tokenomics.one,
-            },
-            '&:nth-child(2):before': {
-              background: theme.palette.custom.tokenomics.two,
-            },
-            '&:last-child:before': {
-              background: theme.palette.custom.tokenomics.three,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,
