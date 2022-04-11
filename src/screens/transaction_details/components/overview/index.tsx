@@ -15,7 +15,7 @@ import { useStyles } from './styles';
 import { OverviewType } from '../../types';
 
 const isBaseledgerTransaction = (messages: any) => {
-  return messages.items.length === 1 && messages.items[0].category === 'proof';
+  return messages && messages.items && messages.items.length && messages.items[0].category === 'proof';
 };
 
 // TODO: if we introduce better message parsing most of this would not be needed
