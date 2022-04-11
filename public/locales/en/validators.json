@@ -25,6 +25,7 @@
   "lastVotingPowerChange": "Last Voting Power Change",
   "powerChange": "<0>{{change}}</0> at block ",
   "transactions": "Transactions",
+  "payees": "Payees",
   "delegations": "Delegations ({{num}})",
   "redelegations": "Redelegations ({{num}})",
   "undelegations": "Undelegations ({{num}})",

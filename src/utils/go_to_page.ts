@@ -6,6 +6,7 @@ export const BLOCK_DETAILS = (slot:string | number): string => `/blocks/${slot}`
 export const VALIDATOR_DETAILS = (address: string): string => `/validators/${address}`;
 export const VALIDATORS = '/validators';
 export const TRANSACTIONS = '/transactions';
+export const PAYEES = '/payees';
 export const TRANSACTION_DETAILS = (tx: string): string => `/transactions/${tx}`;
 export const PROPOSALS = '/proposals';
 export const PROPOSAL_DETAILS = (id:string | number): string => `/proposals/${id}`;
