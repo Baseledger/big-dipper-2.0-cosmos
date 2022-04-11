@@ -20,6 +20,7 @@
   "blocks": "Blocks",
   "validators": "Validators",
   "transactions": "Transactions",
+  "payees": "Payees",
   "proposals": "Proposals",
   "searchBarPlaceholder": "Search for validator / tx hash / block height / address",
   "searchBarPlaceholderDtag": "Search for validator / tx hash / block height / address / @dtag",
