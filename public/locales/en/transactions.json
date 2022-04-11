@@ -10,6 +10,7 @@
   "fee": "Fee",
   "height": "Height",
   "gas": "Gas (used / wanted)",
+  "payloadTokens": "Payload size / Worktokens used",
   "result": "Result",
   "memo": "Memo",
   "none": "None",

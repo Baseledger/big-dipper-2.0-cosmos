@@ -44,6 +44,8 @@ const TransactionDetails = () => {
           <span className={classes.root}>
             <Overview
               data={overview}
+              messages={messages}
+              logs={logs}
             />
             <Messages
               className={classes.messages}
