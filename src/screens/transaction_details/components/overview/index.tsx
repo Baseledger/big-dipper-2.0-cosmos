@@ -11,15 +11,50 @@ import { BLOCK_DETAILS } from '@utils/go_to_page';
 import {
   BoxDetails, Result,
 } from '@components';
-import { formatNumber } from '@utils/format_token';
 import { useStyles } from './styles';
 import { OverviewType } from '../../types';
+
+const isBaseledgerTransaction = (messages: any) => {
+  return messages.items.length === 1 && messages.items[0].category === 'proof';
+};
+
+// TODO: if we introduce better message parsing most of this would not be needed
+const getBaseledgerTransactionTransferLog = (logs) => {
+  // just to make sure some non-standard transaction does not break the page
+  if (!logs || !logs.length || !logs[0].events || !logs[0].events.length) {
+    return;
+  }
+  const transferEvent = logs[0].events.find((e) => e.type === 'transfer');
+  if (!transferEvent) {
+    return;
+  }
+
+  const transferAmountAttr = transferEvent.attributes.find((a) => a.key === 'amount');
+  if (!transferAmountAttr) {
+    return;
+  }
+
+  return transferAmountAttr.value;
+};
+
+const getPayloadWorktokensDetails = (messages, logs) => {
+  if (!isBaseledgerTransaction(messages)) {
+    return;
+  }
+
+  return {
+    payloadSize: messages.items[0].json.payload.length,
+    worktokenUsed: getBaseledgerTransactionTransferLog(logs),
+  };
+};
 
 const Overview: React.FC<{
   className?: string;
   data: OverviewType;
+  messages: any;
+  logs: [];
 }> = ({
-  className, data,
+  className, data, messages, logs,
 }) => {
   const { t } = useTranslation('transactions');
   const classes = useStyles();
@@ -45,14 +80,6 @@ const Overview: React.FC<{
       detail: formatDayJs(dayjs.utc(data.timestamp), dateFormat),
     },
     {
-      label: t('fee'),
-      detail: `${formatNumber(data.fee.value, data.fee.exponent)} ${data?.fee?.displayDenom?.toUpperCase()}`,
-    },
-    {
-      label: t('gas'),
-      detail: `${numeral(data.gasUsed).format('0,0.[00]')} / ${numeral(data.gasWanted).format('0,0.[00]')}`,
-    },
-    {
       label: t('result'),
       detail: (
         <Result success={data.success} />
@@ -64,6 +91,13 @@ const Overview: React.FC<{
       detail: data.memo,
     },
   ];
+  const payloadWorktokensDetails = getPayloadWorktokensDetails(messages, logs);
+  if (payloadWorktokensDetails) {
+    details.splice(3, 0, {
+      label: t('payloadTokens'),
+      detail: `${payloadWorktokensDetails.payloadSize} / ${payloadWorktokensDetails.worktokenUsed}`,
+    });
+  }
 
   if (!data.success) {
     details.push({
