@@ -4,6 +4,10 @@ declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.svg';
 declare module '*.gif';
+declare module '*.json' {
+  const value: any;
+  export default value;
+}
 
 type Override<T1, T2> = Omit<T1, keyof T2> & T2;
 
