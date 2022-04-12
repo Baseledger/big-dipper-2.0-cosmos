@@ -1,4 +1,5 @@
 import React from 'react';
+// import Web3 from 'web3';
 import useTranslation from 'next-translate/useTranslation';
 import { NextSeo } from 'next-seo';
 import {
@@ -6,9 +7,16 @@ import {
 } from '@components';
 import { useStyles } from './styles';
 
+// import myData from './baseledger_abi.json';
+
 const Payees = () => {
   const { t } = useTranslation('common');
   const classes = useStyles();
+  // const web3 = new Web3(new Web3.providers.HttpProvider(''));
+
+  // eslint-disable-next-line max-len
+  // const contract = new web3.eth.Contract(myData as any, '0xdade4688c10c05716929f91d3005c23d4e233869');
+  // console.log('contract',  contract.methods.totalShares().call().then(console.log))
   return (
     <>
       <NextSeo
