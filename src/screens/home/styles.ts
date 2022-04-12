@@ -39,7 +39,7 @@ export const useStyles = () => {
             height: '350px',
           },
         },
-        tokenomics: {
+        validatorsChart: {
           height: '375px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 2',

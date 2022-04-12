@@ -5,7 +5,7 @@ import {
   DataBlocks,
   OnlineVotingPower,
   Consensus,
-  Tokenomics,
+  ValidatorsChart,
   Blocks,
   Transactions,
 } from './components';
@@ -17,7 +17,7 @@ const Home = () => {
     <Layout className={classes.root}>
       <DataBlocks className={classes.dataBlocks} />
       <OnlineVotingPower className={classes.onlineVotingPower} />
-      <Tokenomics className={classes.tokenomics} />
+      <ValidatorsChart className={classes.validatorsChart} />
       <Consensus className={classes.consensus} />
       <Blocks className={classes.blocks} />
       <Transactions className={classes.transactions} />

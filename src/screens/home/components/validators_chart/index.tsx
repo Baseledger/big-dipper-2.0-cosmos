@@ -15,42 +15,40 @@ import {
 import {
   useProfilesRecoil,
 } from '@recoil/profiles';
-import { chainConfig } from '@configs';
 import { useValidators } from '@src/screens/validators/components/list/hooks';
 import { useStyles } from './styles';
-import { useTokenomics } from './hooks';
 
-const Tokenomics:React.FC<{
+const chartColors = (amount) => {
+  const colors = [];
+  for (let i = 0; i < amount; i += 1) {
+    colors.push(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  }
+  return colors;
+};
+
+const ValidatorsChart:React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('home');
   const {
-    classes, theme,
+    classes,
   } = useStyles();
-  const { state } = useTokenomics();
+  const {
+    state,
+    sortItems,
+  } = useValidators();
 
-  const data = [
-    {
-      legendKey: 'bonded',
-      percentKey: 'bondedPercent',
-      value: numeral(state.bonded).format('0,0'),
-      rawValue: state.bonded,
-      percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.one,
-    },
-  ];
-
-  const validatorData = [];
-
-  const dataProfiles = useProfilesRecoil(useValidators().state.items.map((x) => x.validator));
-  const mergedDataWithProfiles = useValidators().state.items.map((x, i) => {
+  const dataProfiles = useProfilesRecoil(state.items.map((x) => x.validator));
+  const mergedDataWithProfiles = state.items.map((x, i) => {
     return ({
       ...x,
       validator: dataProfiles[i],
     });
   });
-  const items = useValidators().sortItems(mergedDataWithProfiles);
+  const items = sortItems(mergedDataWithProfiles);
+  const colors = chartColors(items.length);
 
+  const validatorData = [];
   items.sort((a, b) => b.votingPower - a.votingPower).forEach((item, index) => {
     validatorData.push({
       legendKey: item.validator.name,
@@ -58,28 +56,16 @@ const Tokenomics:React.FC<{
       value: numeral(item.votingPower).format('0,0'),
       rawValue: item.votingPower,
       percent: `${numeral(item.votingPowerPercent).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics[index],
+      fill: colors[index],
     });
   });
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
-        {t('tokenomics')}
+        {t('validators')}
       </Typography>
-      <div className={classes.data}>
-        {data.slice(0, 2).map((x) => (
-          <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
-              {x.value}
-              {' '}
-              {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
-            </Typography>
-          </div>
-        ))}
-      </div>
       <div className={classes.content}>
-
         <PieChart
           width={200}
           height={100}
@@ -151,4 +137,4 @@ const Tokenomics:React.FC<{
   );
 };
 
-export default Tokenomics;
+export default ValidatorsChart;
