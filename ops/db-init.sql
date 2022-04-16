@@ -170,6 +170,19 @@ CREATE TABLE validator_info
 CREATE INDEX validator_info_operator_address_index ON validator_info (operator_address);
 CREATE INDEX validator_info_self_delegate_address_index ON validator_info (self_delegate_address);
 
+CREATE TABLE payee 
+(
+    consensus_address     TEXT   NOT NULL UNIQUE PRIMARY KEY REFERENCES validator (consensus_address),
+    operator_address      TEXT   NOT NULL UNIQUE,
+    revenue_address TEXT NOT NULL,
+    staking_address TEXT NOT NULL,
+    contract_stakes TEXT NOT NULL,
+    ubt_staking_balance TEXT NOT NULL,
+    due_payment TEXT NOT NULL
+)
+CREATE INDEX payee_operator_address_index ON payee (operator_address);
+CREATE INDEX payee_revenue_address_index ON payee (revenue_address);
+
 CREATE TABLE validator_description
 (
     validator_address TEXT   NOT NULL REFERENCES validator (consensus_address) PRIMARY KEY,
