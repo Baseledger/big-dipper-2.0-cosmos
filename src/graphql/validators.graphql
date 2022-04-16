@@ -25,6 +25,13 @@ query Validators {
     validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter
     }
+    payees {
+      contractStakes: contract_stakes
+      duePayment: due_payment
+      revenueAddress: revenue_address
+      stakingAddress: staking_address
+      ubtStakingBalance: ubt_staking_balance
+    }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     params
