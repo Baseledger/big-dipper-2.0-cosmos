@@ -9015,6 +9015,18 @@ export type Validator_Commission = {
   validator_address: Scalars['String'];
 };
 
+/** columns and relationships of "payeee" */
+export type Payee = {
+  __typename?: 'payee';
+  consensus_address: Scalars['String'];
+  contract_stakes: Scalars['String'];
+  due_payment: Scalars['String'];
+  operator_address: Scalars['String'];
+  revenue_address: Scalars['String'];
+  staking_address: Scalars['String'];
+  ubt_staking_balance: Scalars['String'];
+};
+
 /** aggregated selection of "validator_commission" */
 export type Validator_Commission_Aggregate = {
   __typename?: 'validator_commission_aggregate';
@@ -10984,6 +10996,9 @@ export type ValidatorsQuery = { stakingPool: Array<(
     )>, validatorCommissions: Array<(
       { __typename?: 'validator_commission' }
       & Pick<Validator_Commission, 'commission'>
+    )>, payees: Array<(
+      { __typename?: 'payees' }
+      & Pick<Payee, 'contract_stakes' | 'revenue_address' | 'staking_address' | 'due_payment' | 'ubt_staking_balance'>
     )> }
   )>, slashingParams: Array<(
     { __typename?: 'slashing_params' }
@@ -12651,6 +12666,13 @@ export const ValidatorsDocument = gql`
       limit: 1
     ) {
       missedBlocksCounter: missed_blocks_counter
+    }
+    payees {
+      contractStakes: contract_stakes
+      duePayment: due_payment
+      revenueAddress: revenue_address
+      stakingAddress: staking_address
+      ubtStakingBalance: ubt_staking_balance
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
