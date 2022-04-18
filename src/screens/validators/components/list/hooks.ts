@@ -59,10 +59,8 @@ export const useValidators = () => {
     let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
       const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
       const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
-
       const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
       return ({
         validator: x.validatorInfo.operatorAddress,
         votingPower,
@@ -72,6 +70,7 @@ export const useValidators = () => {
         status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
         jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
         tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
+        payees: x.payees as any,
       });
     });
 

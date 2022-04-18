@@ -8,6 +8,15 @@ export type ValidatorType = {
   jailed: boolean;
   tombstoned: boolean;
   topVotingPower?: boolean; // top 34% VP
+  payees?: PayeeType[];
+}
+
+export type PayeeType = {
+  revenueAddress: string;
+  stakingAddress: string;
+  duePayment: string;
+  contractStakes: string;
+  ubtStakingBalance: string;
 }
 
 export type ValidatorsState = {
