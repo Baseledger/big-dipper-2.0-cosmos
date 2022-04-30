@@ -179,7 +179,7 @@ CREATE TABLE payee
     contract_stakes TEXT NOT NULL,
     ubt_staking_balance TEXT NOT NULL,
     due_payment TEXT NOT NULL
-)
+);
 CREATE INDEX payee_operator_address_index ON payee (operator_address);
 CREATE INDEX payee_revenue_address_index ON payee (revenue_address);
 
