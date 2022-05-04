@@ -60,9 +60,9 @@ const Desktop: React.FC<{
           {' '}
         </a>
       ) : '',
-      duePayment: x.payees && x.payees[0] ? x.payees[0].duePayment : '',
-      contractStakes: x.payees && x.payees[0] ? x.payees[0].contractStakes : '',
-      ubtStakingBalance: x.payees && x.payees[0] ? x.payees[0].ubtStakingBalance : '',
+      duePayment: x.payees && x.payees[0] ? `${Math.round(x.payees[0].duePayment / 100000000)} UBT` : '',
+      contractStakes: x.payees && x.payees[0] ? `${Math.round(x.payees[0].contractStakes / 100000000)} UBT` : '',
+      ubtStakingBalance: x.payees && x.payees[0] ? `${Math.round(x.payees[0].ubtStakingBalance / 100000000)} UBT` : '',
     });
   });
 
