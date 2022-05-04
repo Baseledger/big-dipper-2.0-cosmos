@@ -13,6 +13,7 @@ export type ValidatorType = {
 
 export type PayeeType = {
   revenueAddress: string;
+  stakeAddressOverride: string;
   stakingAddress: string;
   duePayment: string;
   contractStakes: string;
