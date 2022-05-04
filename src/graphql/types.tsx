@@ -12671,6 +12671,7 @@ export const ValidatorsDocument = gql`
       contractStakes: contract_stakes
       duePayment: due_payment
       revenueAddress: revenue_address
+      stakeAddressOverride: stake_address_override
       stakingAddress: staking_address
       ubtStakingBalance: ubt_staking_balance
     }
