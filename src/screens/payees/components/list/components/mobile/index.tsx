@@ -24,7 +24,16 @@ const Mobile: React.FC<{
 
   const formattedItems = items.map((x, i) => {
     const revenueAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].revenueAddress}` : '';
-    const stakingAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].stakingAddress}` : '';
+    let stakingAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].stakingAddress}` : '';
+    if (x.payees && x.payees[0] && x.payees[0].stakeAddressOverride) {
+      stakingAddressEtherscan = x.payees[0].stakeAddressOverride;
+    }
+    let stakingBalance = x.payees && x.payees[0] ? x.payees[0].ubtStakingBalance : '';
+    if (stakingBalance === '0') {
+      stakingBalance = '0 UBT (check staking address)';
+    } else {
+      stakingBalance = `${Math.round(x.payees[0].ubtStakingBalance / 100000000)} UBT`;
+    }
     return ({
       idx: `#${i + 1}`,
       validator: (
@@ -48,9 +57,9 @@ const Mobile: React.FC<{
           {' '}
         </a>
       ) : '',
-      duePayment: x.payees && x.payees[0] ? x.payees[0].duePayment : '',
-      contractStakes: x.payees && x.payees[0] ? x.payees[0].contractStakes : '',
-      ubtStakingBalance: x.payees && x.payees[0] ? x.payees[0].ubtStakingBalance : '',
+      duePayment: x.payees && x.payees[0] ? `${Math.round(x.payees[0].duePayment / 100000000)} UBT` : '',
+      contractStakes: x.payees && x.payees[0] ? `${Math.round(x.payees[0].contractStakes / 100000000)} UBT` : '',
+      ubtStakingBalance: stakingBalance,
     });
   });
 
