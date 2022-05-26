@@ -16,7 +16,7 @@ export const fetchPayeesColumns = (): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 20,
+      width: 15,
       sort: true,
     },
     {
@@ -38,6 +38,10 @@ export const fetchPayeesColumns = (): {
     {
       key: 'ubtStakingBalance',
       width: 15,
+    },
+    {
+      key: 'type',
+      width: 5,
     },
   ]);
 };

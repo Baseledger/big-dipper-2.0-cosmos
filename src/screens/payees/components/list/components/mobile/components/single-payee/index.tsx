@@ -15,6 +15,7 @@ const SinglePayee: React.FC<{
   contractStakes: string;
   duePayment: string;
   ubtStakingBalance: string;
+  type: string;
 }> = ({
   className,
   validator,
@@ -23,6 +24,7 @@ const SinglePayee: React.FC<{
   contractStakes,
   duePayment,
   ubtStakingBalance,
+  type,
 }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
@@ -64,6 +66,16 @@ const SinglePayee: React.FC<{
         </Typography>
         {ubtStakingBalance}
       </div>
+      {
+        type && (
+        <div className={classes.item}>
+          <Typography variant="h4" className="label">
+            {t('type')}
+          </Typography>
+          {type}
+        </div>
+        )
+      }
     </div>
 
   );
