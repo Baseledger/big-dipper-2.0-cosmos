@@ -16,6 +16,7 @@ const SinglePayee: React.FC<{
   duePayment: string;
   ubtStakingBalance: string;
   type: string;
+  lastModifiedAt: string;
 }> = ({
   className,
   validator,
@@ -25,6 +26,7 @@ const SinglePayee: React.FC<{
   duePayment,
   ubtStakingBalance,
   type,
+  lastModifiedAt,
 }) => {
   const { t } = useTranslation('validators');
   const classes = useStyles();
@@ -76,6 +78,12 @@ const SinglePayee: React.FC<{
         </div>
         )
       }
+      <div className={classes.item}>
+        <Typography variant="h4" className="label">
+          {t('lastModifiedAt')}
+        </Typography>
+        {lastModifiedAt}
+      </div>
     </div>
 
   );

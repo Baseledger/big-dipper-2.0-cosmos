@@ -12672,6 +12672,7 @@ export const ValidatorsDocument = gql`
       duePayment: due_payment
       revenueAddress: revenue_address
       stakeAddressOverride: stake_address_override
+      lastModifiedAt: last_modified_at
       stakingAddress: staking_address
       ubtStakingBalance: ubt_staking_balance
     }

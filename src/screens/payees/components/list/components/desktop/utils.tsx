@@ -16,7 +16,7 @@ export const fetchPayeesColumns = (): {
     {
       key: 'validator',
       sortKey: 'validator.name',
-      width: 15,
+      width: 10,
       sort: true,
     },
     {
@@ -29,7 +29,7 @@ export const fetchPayeesColumns = (): {
     },
     {
       key: 'duePayment',
-      width: 15,
+      width: 10,
     },
     {
       key: 'contractStakes',
@@ -42,6 +42,10 @@ export const fetchPayeesColumns = (): {
     {
       key: 'type',
       width: 5,
+    },
+    {
+      key: 'lastModifiedAt',
+      width: 10,
     },
   ]);
 };

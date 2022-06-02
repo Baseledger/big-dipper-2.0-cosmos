@@ -22,6 +22,13 @@ const Mobile: React.FC<{
     setRowHeight,
   } = useList();
 
+  const formatDate = (dateString) => {
+    const options = {
+      year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options as any);
+  };
+
   const formattedItems = items.map((x, i) => {
     const revenueAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].revenueAddress}` : '';
     let stakingAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].stakingAddress}` : '';
@@ -62,6 +69,7 @@ const Mobile: React.FC<{
       contractStakes: x.payees && x.payees[0] ? `${Math.round(x.payees[0].contractStakes / 100000000)} UBT` : '',
       ubtStakingBalance: stakingBalance,
       type: stakeAddressOverride ? 'Pool' : '',
+      lastModifiedAt: x.payees && x.payees[0] ? formatDate(x.payees[0].lastModifiedAt) : '',
     });
   });
 
