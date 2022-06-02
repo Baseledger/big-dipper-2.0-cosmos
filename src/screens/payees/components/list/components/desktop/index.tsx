@@ -34,6 +34,13 @@ const Desktop: React.FC<{
     getRowHeight,
   } = useGrid(columns);
 
+  const formatDate = (dateString) => {
+    const options = {
+      year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options as any);
+  };
+
   const formattedItems = props.items.map((x, i) => {
     const revenueAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].revenueAddress}` : '';
     let stakingAddressEtherscan = x.payees && x.payees[0] ? `https://etherscan.io/address/${x.payees[0].stakingAddress}` : '';
@@ -74,6 +81,7 @@ const Desktop: React.FC<{
       contractStakes: x.payees && x.payees[0] ? `${Math.round(x.payees[0].contractStakes / 100000000)} UBT` : '',
       ubtStakingBalance: stakingBalance,
       type: stakeAddressOverride ? 'Pool' : '',
+      lastModifiedAt: x.payees && x.payees[0] ? formatDate(x.payees[0].lastModifiedAt) : '',
     });
   });
 
